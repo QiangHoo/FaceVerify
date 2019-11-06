@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SettingActivity">
+    <include layout="@layout/include_title_bar"/>
+    <RelativeLayout
+        android:id="@+id/rl_reset_face"
+        android:layout_below="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45">
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_15"
+            android:text="@string/reset_face_info"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/txt_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/icon_more"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_25"/>
+    </RelativeLayout>
+    <View
+        android:layout_below="@+id/rl_reset_face"
+        android:background="@color/color_dark_gray"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"/>
+
+</RelativeLayout>
