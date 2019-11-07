@@ -14,11 +14,6 @@ class ToastUtil {
             }
             return mInstance
         }
-        fun showToast(){
-            if (mInstance != null){
-                mInstance.show()
-            }
-        }
     }
 
 }
