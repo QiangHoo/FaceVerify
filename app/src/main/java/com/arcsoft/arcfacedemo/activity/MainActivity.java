@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.arcsoft.arcfacedemo.R;
 import com.arcsoft.arcfacedemo.Tools.SPTools;
 import com.arcsoft.arcfacedemo.widget.IsFirstVarityDialog;
+<<<<<<< HEAD
 import com.arcsoft.arcfacedemo.widget.ToastUtil;
+=======
+>>>>>>> 507e05205858a09af9bf91e2ea3be012f96947e1
 
 import static android.view.Window.FEATURE_NO_TITLE;
 
@@ -104,13 +107,19 @@ public class MainActivity extends AppCompatActivity implements IsFirstVarityDial
             Log.e("MainActivity", "onActivityResult");
             if (resultCode == REQUEST_CODE) {
                 Log.e("MainActivity", "注册成功");
+<<<<<<< HEAD
                 ToastUtil.Companion.getToastInstance(this,"注册成功").show();
+=======
+>>>>>>> 507e05205858a09af9bf91e2ea3be012f96947e1
                 SPTools.saveToDataBase(isFirstRunCarKey, false, this);
                 mIvLockedOrUnLocked.setImageResource(R.mipmap.icon_face_success);
                 isActivityResult = true;
                 isVerifySuccess = true;
             } else if (resultCode == RESULT_OK_CODE) {
+<<<<<<< HEAD
                 ToastUtil.Companion.getToastInstance(this,"识别成功").show();
+=======
+>>>>>>> 507e05205858a09af9bf91e2ea3be012f96947e1
                 Log.e("MainActivity", "识别成功");
                 isActivityResult = true;
                 mIvLockedOrUnLocked.setImageResource(R.mipmap.icon_face_success);

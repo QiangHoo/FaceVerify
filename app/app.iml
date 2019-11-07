@@ -25,7 +25,7 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="$MODULE_DIR$/src/debug/kotlin;/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/src/debug/java;/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/src/release/kotlin;/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/src/release/java;/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/src/debugAndroidTest/kotlin;/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/src/debugUnitTest/kotlin;/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/src/releaseUnitTest/kotlin">
+      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="$MODULE_DIR$/src/debug/kotlin;/Users/vidge/Downloads/FaceVerify/FaceVerify/app/src/debug/java;/Users/vidge/Downloads/FaceVerify/FaceVerify/app/src/release/kotlin;/Users/vidge/Downloads/FaceVerify/FaceVerify/app/src/release/java;/Users/vidge/Downloads/FaceVerify/FaceVerify/app/src/debugAndroidTest/kotlin;/Users/vidge/Downloads/FaceVerify/FaceVerify/app/src/debugUnitTest/kotlin;/Users/vidge/Downloads/FaceVerify/FaceVerify/app/src/releaseUnitTest/kotlin">
         <compilerSettings>
           <option name="additionalArguments" value="-Xallow-no-source-files" />
         </compilerSettings>
@@ -140,7 +140,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:runner:1.0.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:monitor:1.0.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource:3.0.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/vidge/Downloads/ArcSoft_ArcFace_Android_V2.2/samplecode/ArcfaceDemo/app/libs/arcsoft_face.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/vidge/Downloads/FaceVerify/FaceVerify/app/libs/arcsoft_face.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.1.16@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:collections:28.0.0@jar" level="project" />
