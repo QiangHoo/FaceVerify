@@ -20,28 +20,6 @@
         <activity android:name=".activity.SettingActivity"
             android:screenOrientation="portrait"
             />
-        <activity
-            android:name=".activity.FaceAttrPreviewActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".activity.ChooseFunctionActivity"
-            android:launchMode="singleTop"/>
-        <activity
-            android:name=".activity.SingleImageActivity"
-            android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".activity.MultiImageActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".activity.IrRegisterAndRecognizeActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".activity.RegisterAndRecognizeActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".activity.FaceManageActivity"
-            android:launchMode="singleTop" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
