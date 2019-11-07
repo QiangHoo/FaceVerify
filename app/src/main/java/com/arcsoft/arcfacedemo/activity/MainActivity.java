@@ -26,6 +26,8 @@ import com.arcsoft.face.ErrorInfo;
 import com.arcsoft.face.FaceEngine;
 
 
+import java.util.Objects;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -131,13 +133,13 @@ public class MainActivity extends AppCompatActivity implements IsFirstVarityDial
             Log.e("MainActivity", "onActivityResult");
             if (resultCode == REQUEST_CODE) {
                 Log.e("MainActivity", "注册成功");
-                ToastUtil.Companion.getToastInstance(this,"注册成功").show();
+                Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, "注册成功")).show();
                 SPTools.saveToDataBase(isFirstRunCarKey, false, this);
                 mIvLockedOrUnLocked.setImageResource(R.mipmap.icon_face_success);
                 isActivityResult = true;
                 isVerifySuccess = true;
             } else if (resultCode == RESULT_OK_CODE) {
-                ToastUtil.Companion.getToastInstance(this,"识别成功").show();
+                Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, "识别成功")).show();
                 Log.e("MainActivity", "识别成功");
                 isActivityResult = true;
                 mIvLockedOrUnLocked.setImageResource(R.mipmap.icon_face_success);
@@ -252,13 +254,8 @@ public class MainActivity extends AppCompatActivity implements IsFirstVarityDial
             }
         }
     }
+
     private void showToast(String s) {
-        if (toast == null) {
-            toast = Toast.makeText(this, s, Toast.LENGTH_SHORT);
-            toast.show();
-        } else {
-            toast.setText(s);
-            toast.show();
-        }
+        Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, s)).show();
     }
 }

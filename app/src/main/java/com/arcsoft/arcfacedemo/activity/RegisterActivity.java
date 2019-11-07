@@ -43,6 +43,7 @@ import com.arcsoft.arcfacedemo.util.face.RequestFeatureStatus;
 import com.arcsoft.arcfacedemo.util.face.RequestLivenessStatus;
 import com.arcsoft.arcfacedemo.widget.FaceRectView;
 import com.arcsoft.arcfacedemo.widget.FaceSearchResultAdapter;
+import com.arcsoft.arcfacedemo.widget.ToastUtil;
 import com.arcsoft.face.AgeInfo;
 import com.arcsoft.face.ErrorInfo;
 import com.arcsoft.face.FaceEngine;
@@ -203,9 +204,9 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
                 if (cameraHelper != null) {
                     boolean success = cameraHelper.switchCamera();
                     if (!success) {
-                        Toast.makeText(RegisterActivity.this, "切换摄像头失败", Toast.LENGTH_SHORT).show();
+                        ToastUtil.Companion.getToastInstance(RegisterActivity.this,"切换摄像头失败").show();
                     } else {
-                        Toast.makeText(RegisterActivity.this, "切换摄像头成功", Toast.LENGTH_LONG).show();
+                        ToastUtil.Companion.getToastInstance(RegisterActivity.this,"切换摄像头成功").show();
                     }
                 }
             }
