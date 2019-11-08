@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.SmsManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -162,7 +163,7 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
             Manifest.permission.READ_PHONE_STATE
 
     };
-
+    private static int falseTime = 0;
 
     private boolean isVerify = false;
     @Override
@@ -176,16 +177,17 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
         initProperties();
         initViews();
         checkIntent(getIntent());
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS} , 1);
     }
 
     private void checkIntent(Intent intent) {
         if (intent.getBooleanExtra("isVerify",false)){
             isVerify = true;
             findViewById(R.id.btn_add_face_info).setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.tv_title)).setText("人脸识别");
+            ((TextView)findViewById(R.id.tv_title)).setText(getString(R.string.face_verify));
         }else {
             isVerify = false;
-            ((TextView)findViewById(R.id.tv_title)).setText("人脸信息录入");
+            ((TextView)findViewById(R.id.tv_title)).setText(getString(R.string.face_info_record));
         }
     }
 
@@ -204,9 +206,11 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
                 if (cameraHelper != null) {
                     boolean success = cameraHelper.switchCamera();
                     if (!success) {
-                        ToastUtil.Companion.getToastInstance(RegisterActivity.this,"切换摄像头失败").show();
+                        ToastUtil.Companion.getToastInstance(RegisterActivity.this,
+                                getString(R.string.change_camera_failed)).show();
                     } else {
-                        ToastUtil.Companion.getToastInstance(RegisterActivity.this,"切换摄像头成功").show();
+                        ToastUtil.Companion.getToastInstance(RegisterActivity.this,
+                                getString(R.string.change_camera_success)).show();
                     }
                 }
             }
@@ -574,14 +578,14 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
 
                         @Override
                         public void onNext(Boolean success) {
-                            String result = success ? "注册人脸数据成功" : "注册人脸数据失败!";
+                            String result = success ? getString(R.string.register_face_info_success) : getString(R.string.register_face_info_error);
                             Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_SHORT).show();
                             registerStatus = REGISTER_STATUS_DONE;
                         }
 
                         @Override
                         public void onError(Throwable e) {
-                            Toast.makeText(RegisterActivity.this, "注册人脸数据失败!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, getString(R.string.register_face_info_error), Toast.LENGTH_SHORT).show();
                             registerStatus = REGISTER_STATUS_DONE;
                         }
 
@@ -605,10 +609,14 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
             if (recognizeStatus != null) {
                 if (recognizeStatus == RequestFeatureStatus.FAILED) {
                     color = RecognizeColor.COLOR_FAILED;
+                    if(falseTime <=2 ) {
+                        sendSMSToUser();
+                    }
                     Log.e(TAG,"人脸验证失败");
                 }
                 if (recognizeStatus == RequestFeatureStatus.SUCCEED) {
                     color = RecognizeColor.COLOR_SUCCESS;
+                    falseTime = 0;
                     Log.e(TAG,"人脸验证成功");
                 }
             }
@@ -907,5 +915,17 @@ public class RegisterActivity extends AppCompatActivity implements ViewTreeObser
                         delayFaceTaskCompositeDisposable.remove(disposable);
                     }
                 });
+    }
+    private void sendSMSToUser()
+    {
+        Toast.makeText(RegisterActivity.this, "send sms to user", Toast.LENGTH_SHORT).show();
+        String phoneNumber = "13880449187";
+        String MessageBody = "Face verify failed";
+        SmsManager msm = SmsManager.getDefault();
+        if(msm!=null){
+            msm.sendTextMessage(phoneNumber, null, MessageBody, null, null);
+            Log.e(TAG,"send SMS to user");
+        }
+
     }
 }

@@ -12,6 +12,7 @@ import android.view.Window.FEATURE_NO_TITLE
 import com.arcsoft.arcfacedemo.Tools.SPTools
 import com.arcsoft.arcfacedemo.activity.MainActivity.REQUEST_CODE
 import com.arcsoft.arcfacedemo.activity.MainActivity.isFirstRunCarKey
+import com.arcsoft.arcfacedemo.picture_demo.DemoActivity
 import com.arcsoft.arcfacedemo.faceserver.FaceServer
 import com.arcsoft.arcfacedemo.widget.IsFirstVarityDialog
 import kotlinx.android.synthetic.main.activity_setting.*
@@ -50,8 +51,11 @@ class SettingActivity : AppCompatActivity(),IsFirstVarityDialog.OnDialogClickLis
         }
         rl_reset_face.setOnClickListener{
             val dialog = IsFirstVarityDialog(this)
-            dialog.showDialog(this,"温馨提示","是否重置人脸数据，并重新添加人脸信息？",
+            dialog.showDialog(this,getString(R.string.notice_title),getString(R.string.reset_face_info_notice),
                     getString(R.string.dialog_confirm_text),getString(R.string.dialog_cancel_text))
+        }
+        rl_to_demo.setOnClickListener {
+            startActivity(Intent(this,DemoActivity::class.java))
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

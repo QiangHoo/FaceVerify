@@ -98,4 +98,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_bg_notification">#80000000</color>
     <color name="color_bg_name">#80000000</color>
+
+    <color name="color_accent">#7c4dff</color>
+    <color name="color_success">#3CCD88</color>
+    <color name="color_error">#f44336</color>
 </resources>

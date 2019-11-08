@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements IsFirstVarityDial
 
     @Override
     public void onCancel() {
-        finish();
+        //finish();
     }
 
     @Override
@@ -133,17 +133,21 @@ public class MainActivity extends AppCompatActivity implements IsFirstVarityDial
             Log.e("MainActivity", "onActivityResult");
             if (resultCode == REQUEST_CODE) {
                 Log.e("MainActivity", "注册成功");
-                Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, "注册成功")).show();
+                Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, getString(R.string.register_success))).show();
                 SPTools.saveToDataBase(isFirstRunCarKey, false, this);
                 mIvLockedOrUnLocked.setImageResource(R.mipmap.icon_face_success);
                 isActivityResult = true;
                 isVerifySuccess = true;
+                Intent intent = new Intent(this,VechileActivity.class);
+                startActivity(intent);
             } else if (resultCode == RESULT_OK_CODE) {
-                Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, "识别成功")).show();
+                Objects.requireNonNull(ToastUtil.Companion.getToastInstance(this, getString(R.string.verify_success))).show();
                 Log.e("MainActivity", "识别成功");
                 isActivityResult = true;
                 mIvLockedOrUnLocked.setImageResource(R.mipmap.icon_face_success);
                 isVerifySuccess = true;
+                Intent intent = new Intent(this,VechileActivity.class);
+                startActivity(intent);
             }
         }
     }

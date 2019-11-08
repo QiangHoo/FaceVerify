@@ -84,6 +84,25 @@
     <string name="main_title_text">主界面</string>
     <string name="setting_title">设置</string>
     <string name="reset_face_info">重置人脸信息</string>
+    <string name="car_owner_verify">车主认证图片上传</string>
+    <string name="face_verify">人脸识别</string>
+    <string name="face_info_record">人脸信息录入</string>
+    <string name="change_camera_failed">切换摄像头失败</string>
+    <string name="change_camera_success">切换摄像头成功</string>
+
+    <string name="safe_detection">Safe detection</string>
+    <string name="tire_text">Tire pressure detection</string>
+    <string name="light_text">Light detection</string>
+    <string name="oil_text">Engine oil pressure detection</string>
+    <string name="seat_text">Seat belt not detection</string>
+    <string name="door_text">Door close detection</string>
+    <string name="detection_pass">Detection pass</string>
+    <string name="notice_title">温馨提示</string>
+    <string name="reset_face_info_notice">是否重置人脸数据，并重新添加人脸信息？</string>
+    <string name="register_face_info_success">注册人脸数据成功</string>
+    <string name="register_face_info_error">注册人脸数据失败!</string>
+    <string name="verify_success">识别成功</string>
+    <string name="register_success">注册成功</string>
 
 
 </resources>
